@@ -13,7 +13,7 @@ public class BirdFromAnimal extends AbstractAnimal {
     }
 
     @Override
-    public String breah() {
+    public String breath() {
         return "lungs";
     }
 
