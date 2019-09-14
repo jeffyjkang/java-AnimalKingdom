@@ -83,5 +83,8 @@ public class Main {
         animalList.sort((a1, a2) -> a1.name.compareToIgnoreCase(a2.name));
         printAnimal(animalList, a -> a.year == 1758);
         System.out.println();
+        // only animals that are mammals, and alphabetically
+        printAnimal(animalList, a -> a instanceof MammalFromAnimal);
+        System.out.println();
     }
 }
