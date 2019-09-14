@@ -3,6 +3,16 @@ package animalKingdom;
 import java.util.*;
 
 public class Main {
+    // class method to test with boolean
+    public static void printAnimal(ArrayList<AbstractAnimal> animals, CheckAnimal tester) {
+        for (AbstractAnimal a : animals) {
+            if (tester.test(a)) {
+                System.out.println("name: " + a.name + ", movement: " + a.move() + ", breath: " + a.breath()
+                        + ", reproduce: " + a.reproduce() + ", year:" + a.year);
+            }
+        }
+    }
+
     public static void main(String[] args) {
         MammalFromAnimal panda = new MammalFromAnimal("Panda", 1869);
         MammalFromAnimal zebra = new MammalFromAnimal("Zebra", 1778);
@@ -59,5 +69,19 @@ public class Main {
         // animals by how they move
         animalList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
         animalList.forEach((a) -> System.out.println("name: " + a.name + ", movement: " + a.move()));
+        System.out.println();
+        // only animals with breath: lungs, using custom class method
+        printAnimal(animalList, a -> a.breath() == "lungs");
+        System.out.println();
+        // only animals with breath: lungs, and named in 1758
+        printAnimal(animalList, a -> a.breath() == "lungs" && a.year == 1758);
+        System.out.println();
+        // only animals with breath: lungs, and reproduce: eggs
+        printAnimal(animalList, a -> a.breath() == "lungs" && a.reproduce() == "eggs");
+        System.out.println();
+        // only animals named in 1758 and alphabetically
+        animalList.sort((a1, a2) -> a1.name.compareToIgnoreCase(a2.name));
+        printAnimal(animalList, a -> a.year == 1758);
+        System.out.println();
     }
 }
