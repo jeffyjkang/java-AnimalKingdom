@@ -20,14 +20,44 @@ public class Main {
         FishFromAnimal catfish = new FishFromAnimal("Catfish", 1817);
         FishFromAnimal perch = new FishFromAnimal("Perch", 1758);
 
-        System.out.println(panda);
-        System.out.println(zebra);
-        System.out.println(pigeon);
-        System.out.println(panda.getNumber());
-        System.out.println(zebra.getNumber());
-        System.out.println(pigeon.getNumber());
-        System.out.println(armadillo.move());
-        System.out.println(toucan.breath());
-        System.out.println(salmon.reproduce());
+        // System.out.println(panda);
+        // System.out.println(zebra);
+        // System.out.println(pigeon);
+        // System.out.println(panda.getNumber());
+        // System.out.println(zebra.getNumber());
+        // System.out.println(pigeon.getNumber());
+        // System.out.println(armadillo.move());
+        // System.out.println(toucan.breath());
+        // System.out.println(salmon.reproduce());
+        ArrayList<AbstractAnimal> animalList = new ArrayList<AbstractAnimal>();
+        animalList.add(panda);
+        animalList.add(zebra);
+        animalList.add(koala);
+        animalList.add(sloth);
+        animalList.add(armadillo);
+        animalList.add(raccoon);
+        animalList.add(bigfoot);
+        animalList.add(pigeon);
+        animalList.add(peacock);
+        animalList.add(toucan);
+        animalList.add(parrot);
+        animalList.add(swan);
+        animalList.add(salmon);
+        animalList.add(catfish);
+        animalList.add(perch);
+        //
+        System.out.println(animalList.toString());
+        System.out.println();
+        // animals in descending order by year named
+        animalList.sort((a1, a2) -> a2.year - a1.year);
+        animalList.forEach((a) -> System.out.println("name: " + a.name + ", year: " + a.year));
+        System.out.println();
+        // animals alphabetically
+        animalList.sort((a1, a2) -> a1.name.compareToIgnoreCase(a2.name));
+        animalList.forEach((a) -> System.out.println("name: " + a.name + ", year: " + a.year));
+        System.out.println();
+        // animals by how they move
+        animalList.sort((a1, a2) -> a1.move().compareToIgnoreCase(a2.move()));
+        animalList.forEach((a) -> System.out.println("name: " + a.name + ", movement: " + a.move()));
     }
 }
